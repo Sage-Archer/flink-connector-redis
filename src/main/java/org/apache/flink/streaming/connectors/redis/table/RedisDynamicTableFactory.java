@@ -24,16 +24,6 @@ public class RedisDynamicTableFactory
 
     @Override
     public DynamicTableSource createDynamicTableSource(Context context) {
-        if (context.getCatalogTable().getOptions().containsKey(REDIS_COMMAND)) {
-            context.getCatalogTable()
-                    .getOptions()
-                    .put(
-                            REDIS_COMMAND,
-                            context.getCatalogTable()
-                                    .getOptions()
-                                    .get(REDIS_COMMAND)
-                                    .toUpperCase());
-        }
         FactoryUtil.TableFactoryHelper helper = FactoryUtil.createTableFactoryHelper(this, context);
         ReadableConfig config = helper.getOptions();
         helper.validate();
@@ -46,16 +36,6 @@ public class RedisDynamicTableFactory
 
     @Override
     public DynamicTableSink createDynamicTableSink(Context context) {
-        if (context.getCatalogTable().getOptions().containsKey(REDIS_COMMAND)) {
-            context.getCatalogTable()
-                    .getOptions()
-                    .put(
-                            REDIS_COMMAND,
-                            context.getCatalogTable()
-                                    .getOptions()
-                                    .get(REDIS_COMMAND)
-                                    .toUpperCase());
-        }
         FactoryUtil.TableFactoryHelper helper = FactoryUtil.createTableFactoryHelper(this, context);
         ReadableConfig config = helper.getOptions();
         helper.validate();
